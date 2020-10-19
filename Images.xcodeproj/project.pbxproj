@@ -24,6 +24,7 @@
 		AE3DC404253D73CA005A0B95 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AE3DC407253D73CA005A0B95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE3DC409253D73CA005A0B95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE3DC410253D7587005A0B95 /* Images.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Images.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +57,7 @@
 		AE3DC3FA253D73C8005A0B95 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AE3DC410253D7587005A0B95 /* Images.entitlements */,
 				AE3DC3FB253D73C8005A0B95 /* AppDelegate.swift */,
 				AE3DC3FD253D73C8005A0B95 /* SceneDelegate.swift */,
 				AE3DC3FF253D73C8005A0B95 /* ContentView.swift */,
@@ -286,6 +288,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Images/Images.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Images/Preview Content\"";
 				DEVELOPMENT_TEAM = QPFFKMSR5R;
@@ -297,8 +300,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mczarnik.Images;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -307,6 +311,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Images/Images.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Images/Preview Content\"";
 				DEVELOPMENT_TEAM = QPFFKMSR5R;
@@ -318,8 +323,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mczarnik.Images;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
