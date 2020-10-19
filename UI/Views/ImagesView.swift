@@ -8,12 +8,20 @@
 import SwiftUI
 
 public class ImagesBuilder {
-    public static func buildView<ViewModel>(
-        viewModel: ViewModel
-    ) -> some View where ViewModel: ImagesViewModelProtocol {
+    public static func buildView<ViewModel, EditorViewModel>(
+        viewModel: ViewModel,
+        editorViewModelForElementIDProvider provideEditorViewModelForElementID: @escaping  (ImageElementState<ViewModel.ImageProvider>.ID) -> EditorViewModel?
+    ) -> some View where
+        ViewModel: ImagesViewModelProtocol,
+        EditorViewModel: EditorViewModelProtocol
+    {
         ImagesView(
             viewModel: viewModel,
-            buildEditorView: { _ in Rectangle().foregroundColor(.black).asAny }
+            buildEditorView: {
+                let viewModel = provideEditorViewModelForElementID($0)
+                
+                return viewModel.map(EditorBuilder.buildView)?.asAny
+            }
         )
     }
 }
@@ -46,12 +54,15 @@ public struct ImageElementState<ImageProvider>: Identifiable where
 }
 
 struct ImagesView<ViewModel>: View where ViewModel: ImagesViewModelProtocol {
+    typealias ElementID = ImageElementState<ViewModel.ImageProvider>.ID
+    
     @ObservedObject var viewModel: ViewModel
     
     @State private var columnWidth: CGFloat = 100
     @State private var showEditor = false
+    @State private var selectedElementID: ElementID?
     
-    let buildEditorView: (ImageElementState<ViewModel.ImageProvider>.ID) -> AnyView
+    let buildEditorView: (ElementID) -> AnyView?
     
     var body: some View {
         Group {
@@ -72,10 +83,12 @@ struct ImagesView<ViewModel>: View where ViewModel: ImagesViewModelProtocol {
                                 )
                                     .aspectRatio(1, contentMode: .fill)
                                     .onTapGesture {
+                                        selectedElementID = element.id
                                         showEditor.toggle()
                                     }
                                     .sheet(isPresented: $showEditor) {
-                                        buildEditorView(element.id)
+                                        selectedElementID.map(buildEditorView)
+                                            ?? Text("Something wrong").asAny
                                     }
                             }
                         }
@@ -91,8 +104,3 @@ struct ImagesView<ViewModel>: View where ViewModel: ImagesViewModelProtocol {
     }
 }
 
-struct ImagesView_Previews: PreviewProvider {
-    static var previews: some View {
-        ImagesBuilder.buildView(viewModel: MockImagesViewModel())
-    }
-}

@@ -21,8 +21,28 @@ class AppCoordinator {
     }
     
     private func buildRootView() -> some View {
-        ImagesBuilder.buildView(
-            viewModel: ImagesViewModel(service: URLSessionDecodeedValueProvider())
+        let imagesViewModel = ImagesViewModel(
+            service: URLSessionDecodeedValueProvider()
         )
+        
+        return ImagesBuilder.buildView(
+            viewModel: imagesViewModel,
+            editorViewModelForElementIDProvider: { elementId -> EditorViewModel? in
+                let imageDTO = imagesViewModel.imageDTO(forElementWithID: elementId)
+                
+                return imageDTO.map(EditorViewModel.init)
+            }
+        )
+    }
+}
+
+class EditorViewModel: EditorViewModelProtocol {
+    var name: String = "some name from vm"
+    
+    @Published var imageProvider: LiveSurfaceImageProvider
+    
+    init(imageDTO: ImageDTO) {
+        name = imageDTO.name
+        imageProvider = LiveSurfaceImageProvider(imageName: imageDTO.image)
     }
 }

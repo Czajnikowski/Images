@@ -7,24 +7,36 @@
 
 import SwiftUI
 
-struct EditorView<ImageProvider>: View where ImageProvider: ImageProviding {
-    @StateObject var imageProvider: ImageProvider
+public class EditorBuilder {
+    public static func buildView<ViewModel>(
+        viewModel: ViewModel
+    ) -> some View where ViewModel: EditorViewModelProtocol {
+        EditorView(viewModel: viewModel)
+    }
+}
+
+public protocol EditorViewModelProtocol {
+    associatedtype ImageProvider: ImageProviding
+    
+    var imageProvider: ImageProvider { get }
+    var name: String { get }
+}
+
+struct EditorView<ViewModel>: View where ViewModel: EditorViewModelProtocol {
+    private let viewModel: ViewModel
+    
+    init(viewModel: ViewModel) {
+        self.viewModel = viewModel
+        self.name = viewModel.name
+    }
     
     let name: String
     
     var body: some View {
         ImageCellView(
-            imageProvider: imageProvider,
+            imageProvider: viewModel.imageProvider,
             name: name
         )
     }
 }
 
-struct EditorView_Previews: PreviewProvider {
-    static var previews: some View {
-        EditorView(
-            imageProvider: MockImageProvider(image: .loaded(.mocked)),
-            name: "Yeah"
-        )
-    }
-}
