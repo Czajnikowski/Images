@@ -129,10 +129,10 @@
 		AE3EA277253D9205002EA6CD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AE72D413253DC73400998DE0 /* EditorView.swift */,
 				AE3DC446253D7862005A0B95 /* GridView.swift */,
 				AE3DC449253D7C98005A0B95 /* ImageCellView.swift */,
 				AE3DC43D253D7764005A0B95 /* ImagesView.swift */,
-				AE72D413253DC73400998DE0 /* EditorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

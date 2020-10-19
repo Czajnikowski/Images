@@ -155,8 +155,8 @@
 		AE3EA276253D90EE002EA6CD /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				AE3EA271253D9097002EA6CD /* ImagesViewModel.swift */,
 				AE72D422253DE1E800998DE0 /* EditorViewModel.swift */,
+				AE3EA271253D9097002EA6CD /* ImagesViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -164,8 +164,8 @@
 		AE3EA2B8253D9C65002EA6CD /* DTOs */ = {
 			isa = PBXGroup;
 			children = (
-				AE3EA2B9253D9C65002EA6CD /* ImagesDTO.swift */,
 				AE3EA2BA253D9C65002EA6CD /* ImageDTO.swift */,
+				AE3EA2B9253D9C65002EA6CD /* ImagesDTO.swift */,
 			);
 			path = DTOs;
 			sourceTree = "<group>";
