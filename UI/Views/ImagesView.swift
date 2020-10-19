@@ -30,6 +30,16 @@ public struct ImageElementState<ImageProvider>: Identifiable where
     
     let imageProvider: ImageProvider
     let name: String
+    
+    public init(
+        id: Int,
+        imageProvider: ImageProvider,
+        name: String
+    ) {
+        self.id = id
+        self.imageProvider = imageProvider
+        self.name = name
+    }
 }
 
 struct ImagesView<ViewModel>: View where ViewModel: ImagesViewModelProtocol {

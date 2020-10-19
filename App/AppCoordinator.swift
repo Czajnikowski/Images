@@ -21,6 +21,8 @@ class AppCoordinator {
     }
     
     private func buildRootView() -> some View {
-        ImagesBuilder.buildView(viewModel: ImagesViewModel())
+        ImagesBuilder.buildView(
+            viewModel: ImagesViewModel(service: URLSessionDecodeedValueProvider())
+        )
     }
 }

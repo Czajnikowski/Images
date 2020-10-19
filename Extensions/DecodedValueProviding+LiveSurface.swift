@@ -19,7 +19,8 @@ extension DecodedValueProviding {
         provide(ImagesDTO.self, for: url)
             .mapError { $0.localizedDescription }
             .map(\.images)
-            .map { Array($0.values) }
+            .map(\.values)
+            .map(Array.init)
             .eraseToAnyPublisher()
     }
 }
