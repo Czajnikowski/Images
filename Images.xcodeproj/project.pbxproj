@@ -10,10 +10,12 @@
 		AE3DC3FC253D73C8005A0B95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3DC3FB253D73C8005A0B95 /* AppDelegate.swift */; };
 		AE3DC3FE253D73C8005A0B95 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3DC3FD253D73C8005A0B95 /* SceneDelegate.swift */; };
 		AE3DC402253D73CA005A0B95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE3DC401253D73CA005A0B95 /* Assets.xcassets */; };
-		AE3DC405253D73CA005A0B95 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE3DC404253D73CA005A0B95 /* Preview Assets.xcassets */; };
 		AE3DC408253D73CA005A0B95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE3DC406253D73CA005A0B95 /* LaunchScreen.storyboard */; };
 		AE3EA250253D82B6002EA6CD /* UI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE3EA24F253D82AF002EA6CD /* UI.framework */; };
 		AE3EA251253D82B6002EA6CD /* UI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE3EA24F253D82AF002EA6CD /* UI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AE3EA270253D9063002EA6CD /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3EA26F253D9063002EA6CD /* AppCoordinator.swift */; };
+		AE3EA272253D9097002EA6CD /* ImagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3EA271253D9097002EA6CD /* ImagesViewModel.swift */; };
+		AE3EA274253D90BD002EA6CD /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3EA273253D90BD002EA6CD /* ImageProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,11 +54,13 @@
 		AE3DC3FB253D73C8005A0B95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE3DC3FD253D73C8005A0B95 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		AE3DC401253D73CA005A0B95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AE3DC404253D73CA005A0B95 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AE3DC407253D73CA005A0B95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE3DC409253D73CA005A0B95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE3DC410253D7587005A0B95 /* Images.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Images.entitlements; sourceTree = "<group>"; };
 		AE3EA24A253D82AF002EA6CD /* UI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = UI.xcodeproj; path = UI/UI.xcodeproj; sourceTree = "<group>"; };
+		AE3EA26F253D9063002EA6CD /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		AE3EA271253D9097002EA6CD /* ImagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesViewModel.swift; sourceTree = "<group>"; };
+		AE3EA273253D90BD002EA6CD /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,9 +78,11 @@
 		AE3DC3EF253D73C8005A0B95 = {
 			isa = PBXGroup;
 			children = (
+				AE3DC3FA253D73C8005A0B95 /* App */,
 				AE3EA249253D82A2002EA6CD /* Frameworks */,
-				AE3DC3FA253D73C8005A0B95 /* Images */,
 				AE3DC3F9253D73C8005A0B95 /* Products */,
+				AE3EA275253D90D1002EA6CD /* Tools */,
+				AE3EA276253D90EE002EA6CD /* ViewModels */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,26 +94,18 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AE3DC3FA253D73C8005A0B95 /* Images */ = {
+		AE3DC3FA253D73C8005A0B95 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				AE3DC410253D7587005A0B95 /* Images.entitlements */,
+				AE3EA26F253D9063002EA6CD /* AppCoordinator.swift */,
 				AE3DC3FB253D73C8005A0B95 /* AppDelegate.swift */,
-				AE3DC3FD253D73C8005A0B95 /* SceneDelegate.swift */,
 				AE3DC401253D73CA005A0B95 /* Assets.xcassets */,
-				AE3DC406253D73CA005A0B95 /* LaunchScreen.storyboard */,
+				AE3DC410253D7587005A0B95 /* Images.entitlements */,
 				AE3DC409253D73CA005A0B95 /* Info.plist */,
-				AE3DC403253D73CA005A0B95 /* Preview Content */,
+				AE3DC406253D73CA005A0B95 /* LaunchScreen.storyboard */,
+				AE3DC3FD253D73C8005A0B95 /* SceneDelegate.swift */,
 			);
-			path = Images;
-			sourceTree = "<group>";
-		};
-		AE3DC403253D73CA005A0B95 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				AE3DC404253D73CA005A0B95 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
+			path = App;
 			sourceTree = "<group>";
 		};
 		AE3EA249253D82A2002EA6CD /* Frameworks */ = {
@@ -124,6 +122,22 @@
 				AE3EA24F253D82AF002EA6CD /* UI.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		AE3EA275253D90D1002EA6CD /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				AE3EA273253D90BD002EA6CD /* ImageProvider.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		AE3EA276253D90EE002EA6CD /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				AE3EA271253D9097002EA6CD /* ImagesViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,7 +216,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE3DC408253D73CA005A0B95 /* LaunchScreen.storyboard in Resources */,
-				AE3DC405253D73CA005A0B95 /* Preview Assets.xcassets in Resources */,
 				AE3DC402253D73CA005A0B95 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -214,7 +227,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE3EA274253D90BD002EA6CD /* ImageProvider.swift in Sources */,
+				AE3EA270253D9063002EA6CD /* AppCoordinator.swift in Sources */,
 				AE3DC3FC253D73C8005A0B95 /* AppDelegate.swift in Sources */,
+				AE3EA272253D9097002EA6CD /* ImagesViewModel.swift in Sources */,
 				AE3DC3FE253D73C8005A0B95 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,12 +378,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Images/Images.entitlements;
+				CODE_SIGN_ENTITLEMENTS = App/Images.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Images/Preview Content\"";
 				DEVELOPMENT_TEAM = QPFFKMSR5R;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Images/Info.plist;
+				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -385,12 +400,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Images/Images.entitlements;
+				CODE_SIGN_ENTITLEMENTS = App/Images.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Images/Preview Content\"";
 				DEVELOPMENT_TEAM = QPFFKMSR5R;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Images/Info.plist;
+				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
