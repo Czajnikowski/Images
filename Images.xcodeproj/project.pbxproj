@@ -21,6 +21,7 @@
 		AE72D40A253D9F8700998DE0 /* URLSessionDecodeedValueProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE72D409253D9F8700998DE0 /* URLSessionDecodeedValueProvider.swift */; };
 		AE72D40D253D9FBA00998DE0 /* DecodedValueProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE72D40C253D9FBA00998DE0 /* DecodedValueProviding.swift */; };
 		AE72D410253DA00E00998DE0 /* DecodedValueProviding+LiveSurface.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE72D40F253DA00E00998DE0 /* DecodedValueProviding+LiveSurface.swift */; };
+		AE72D412253DAD9600998DE0 /* LoadableResource+convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE72D411253DAD9600998DE0 /* LoadableResource+convenience.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		AE72D409253D9F8700998DE0 /* URLSessionDecodeedValueProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDecodeedValueProvider.swift; sourceTree = "<group>"; };
 		AE72D40C253D9FBA00998DE0 /* DecodedValueProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodedValueProviding.swift; sourceTree = "<group>"; };
 		AE72D40F253DA00E00998DE0 /* DecodedValueProviding+LiveSurface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DecodedValueProviding+LiveSurface.swift"; sourceTree = "<group>"; };
+		AE72D411253DAD9600998DE0 /* LoadableResource+convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoadableResource+convenience.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				AE72D40F253DA00E00998DE0 /* DecodedValueProviding+LiveSurface.swift */,
+				AE72D411253DAD9600998DE0 /* LoadableResource+convenience.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				AE72D410253DA00E00998DE0 /* DecodedValueProviding+LiveSurface.swift in Sources */,
 				AE3DC3FE253D73C8005A0B95 /* SceneDelegate.swift in Sources */,
 				AE3EA2BB253D9C65002EA6CD /* ImagesDTO.swift in Sources */,
+				AE72D412253DAD9600998DE0 /* LoadableResource+convenience.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

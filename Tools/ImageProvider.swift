@@ -9,6 +9,8 @@ import UIKit
 import UI
 import Combine
 
+private let cache = NSCache<NSString, UIImage>()
+
 class LiveSurfaceImageProvider: ImageProviding {
     @Published var image: LoadableResource<UIImage> = .idle
     
@@ -17,6 +19,10 @@ class LiveSurfaceImageProvider: ImageProviding {
     private var imageLoadingToken: Cancellable?
     
     init(imageName: String) {
+        if let image = cache.object(forKey: imageName as NSString) {
+            self.image = LoadableResource(loaded: image)
+        }
+        
         var components = baseURLComponents
         components.path += "/test/images/" + imageName
         
@@ -26,13 +32,15 @@ class LiveSurfaceImageProvider: ImageProviding {
             .map(\.data)
             .map(UIImage.init)
             .replaceError(with: nil)
+            .map { $0.map(LoadableResource.init) ?? .failed(message: "Unable to display image") }
             .receive(on: DispatchQueue.main)
-            .sink {
-                guard let image = $0 else {
-                    return
+            .sink { image in
+                if let downloadedImage = image.image {
+                    cache.setObject(downloadedImage, forKey: imageName as NSString)
                 }
                 
-                self.image = .loaded(image)
+                self.image = image
+                
                 self.imageLoadingToken = nil
             }
     }
