@@ -8,31 +8,69 @@
 import SwiftUI
 
 public class ImagesBuilder {
-    public static func buildView() -> some View {
-        ImagesView()
+    public static func buildView<ViewModel>(
+        viewModel: ViewModel
+    ) -> some View where ViewModel: ImagesViewModelProtocol {
+        ImagesView(viewModel: viewModel)
     }
 }
 
-struct ImagesView: View {
+public protocol ImagesViewModelProtocol: ObservableObject {
+    associatedtype ImageProvider: ImageProviding
+    
+    var elements: LoadableResource<[ImageElementState<ImageProvider>]> { get }
+    
+    func loadElements()
+}
+
+public struct ImageElementState<ImageProvider>: Identifiable where
+    ImageProvider: ImageProviding
+{
+    public let id: Int
+    
+    let imageProvider: ImageProvider
+    let name: String
+}
+
+struct ImagesView<ViewModel>: View where ViewModel: ImagesViewModelProtocol {
+    @ObservedObject var viewModel: ViewModel
+    
     @State private var columnWidth: CGFloat = 100
     
     var body: some View {
-        GeometryReader { g in
-            VStack {
-                Slider(value: $columnWidth, in: 50 ... g.size.width / 2)
-                GridView(columnWidth: columnWidth) {
-                    ForEach(0 ..< 200) { _ in
-                        Rectangle().foregroundColor(.blue)
-                            .aspectRatio(1, contentMode: .fill)
+        Group {
+            switch viewModel.elements {
+            case .idle:
+                Text("Idle")
+            case .loading:
+                Text("Loading")
+            case let .loaded(elements):
+                GeometryReader { g in
+                    VStack {
+                        Slider(value: $columnWidth, in: 50 ... g.size.width / 2)
+                        GridView(columnWidth: columnWidth) {
+                            ForEach(elements) { element in
+                                ImageCellView(
+                                    imageProvider: element.imageProvider,
+                                    name: element.name
+                                )
+                                    .aspectRatio(1, contentMode: .fill)
+                            }
+                        }
                     }
                 }
+            case .failed:
+                Text("Failed")
             }
         }
+            .onAppear {
+                viewModel.loadElements()
+            }
     }
 }
 
 struct ImagesView_Previews: PreviewProvider {
     static var previews: some View {
-        ImagesView()
+        ImagesView(viewModel: MockImagesViewModel())
     }
 }

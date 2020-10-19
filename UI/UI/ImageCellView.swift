@@ -19,6 +19,8 @@ struct ImageCellView<ImageProvider>: View where ImageProvider: ImageProviding {
     var body: some View {
         VStack {
             switch imageProvider.image {
+            case .idle:
+                Text("Idle")
             case let .loading(percentageLoaded):
                 Text("Loading: \(percentageLoaded)")
             case let .loaded(image):

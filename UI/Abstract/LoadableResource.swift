@@ -9,6 +9,7 @@ import Foundation
 
 public enum LoadableResource<Resource> {
     case
+        idle,
         loading(percentageLoaded: Int),
         loaded(Resource),
         failed(message: String)
