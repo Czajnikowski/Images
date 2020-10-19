@@ -11,6 +11,11 @@
 		AE3DC43E253D7764005A0B95 /* ImagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3DC43D253D7764005A0B95 /* ImagesView.swift */; };
 		AE3DC447253D7862005A0B95 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3DC446253D7862005A0B95 /* GridView.swift */; };
 		AE3DC44A253D7C98005A0B95 /* ImageCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3DC449253D7C98005A0B95 /* ImageCellView.swift */; };
+		AE3DC44F253D80D1005A0B95 /* Preview.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE3DC44E253D80D1005A0B95 /* Preview.xcassets */; };
+		AE3EA258253D8410002EA6CD /* Bundle+current.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3EA257253D8410002EA6CD /* Bundle+current.swift */; };
+		AE3EA25D253D843E002EA6CD /* MockImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3EA25C253D843E002EA6CD /* MockImageProvider.swift */; };
+		AE3EA262253D84E4002EA6CD /* ImageProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3EA261253D84E4002EA6CD /* ImageProviding.swift */; };
+		AE3EA266253D84F8002EA6CD /* LoadableResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3EA265253D84F8002EA6CD /* LoadableResource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +25,11 @@
 		AE3DC43D253D7764005A0B95 /* ImagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesView.swift; sourceTree = "<group>"; };
 		AE3DC446253D7862005A0B95 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		AE3DC449253D7C98005A0B95 /* ImageCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCellView.swift; sourceTree = "<group>"; };
+		AE3DC44E253D80D1005A0B95 /* Preview.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Preview.xcassets; sourceTree = "<group>"; };
+		AE3EA257253D8410002EA6CD /* Bundle+current.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+current.swift"; sourceTree = "<group>"; };
+		AE3EA25C253D843E002EA6CD /* MockImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockImageProvider.swift; sourceTree = "<group>"; };
+		AE3EA261253D84E4002EA6CD /* ImageProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProviding.swift; sourceTree = "<group>"; };
+		AE3EA265253D84F8002EA6CD /* LoadableResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableResource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,8 +46,11 @@
 		AE3DC413253D76E7005A0B95 = {
 			isa = PBXGroup;
 			children = (
-				AE3DC41F253D76E8005A0B95 /* UI */,
+				AE3EA260253D84D7002EA6CD /* Abstract */,
+				AE3EA256253D8400002EA6CD /* Extensions */,
+				AE3DC44C253D8091005A0B95 /* Preview Content */,
 				AE3DC41E253D76E8005A0B95 /* Products */,
+				AE3DC41F253D76E8005A0B95 /* UI */,
 			);
 			sourceTree = "<group>";
 		};
@@ -52,13 +65,47 @@
 		AE3DC41F253D76E8005A0B95 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				AE3DC420253D76E8005A0B95 /* UI.h */,
-				AE3DC421253D76E8005A0B95 /* Info.plist */,
-				AE3DC43D253D7764005A0B95 /* ImagesView.swift */,
 				AE3DC446253D7862005A0B95 /* GridView.swift */,
 				AE3DC449253D7C98005A0B95 /* ImageCellView.swift */,
+				AE3DC43D253D7764005A0B95 /* ImagesView.swift */,
+				AE3DC421253D76E8005A0B95 /* Info.plist */,
+				AE3DC420253D76E8005A0B95 /* UI.h */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		AE3DC44C253D8091005A0B95 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				AE3EA25B253D8430002EA6CD /* Mocks */,
+				AE3DC44E253D80D1005A0B95 /* Preview.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		AE3EA256253D8400002EA6CD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AE3EA257253D8410002EA6CD /* Bundle+current.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		AE3EA25B253D8430002EA6CD /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				AE3EA25C253D843E002EA6CD /* MockImageProvider.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		AE3EA260253D84D7002EA6CD /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				AE3EA261253D84E4002EA6CD /* ImageProviding.swift */,
+				AE3EA265253D84F8002EA6CD /* LoadableResource.swift */,
+			);
+			path = Abstract;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,6 +177,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE3DC44F253D80D1005A0B95 /* Preview.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,9 +188,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE3EA25D253D843E002EA6CD /* MockImageProvider.swift in Sources */,
 				AE3DC44A253D7C98005A0B95 /* ImageCellView.swift in Sources */,
+				AE3EA262253D84E4002EA6CD /* ImageProviding.swift in Sources */,
 				AE3DC447253D7862005A0B95 /* GridView.swift in Sources */,
 				AE3DC43E253D7764005A0B95 /* ImagesView.swift in Sources */,
+				AE3EA266253D84F8002EA6CD /* LoadableResource.swift in Sources */,
+				AE3EA258253D8410002EA6CD /* Bundle+current.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +329,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_ASSET_PATHS = "Preview\\ Content";
 				DEVELOPMENT_TEAM = QPFFKMSR5R;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -293,7 +346,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -303,6 +356,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_ASSET_PATHS = "Preview\\ Content";
 				DEVELOPMENT_TEAM = QPFFKMSR5R;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -318,7 +372,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};

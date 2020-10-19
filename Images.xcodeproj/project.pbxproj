@@ -13,14 +13,23 @@
 		AE3DC402253D73CA005A0B95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE3DC401253D73CA005A0B95 /* Assets.xcassets */; };
 		AE3DC405253D73CA005A0B95 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE3DC404253D73CA005A0B95 /* Preview Assets.xcassets */; };
 		AE3DC408253D73CA005A0B95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE3DC406253D73CA005A0B95 /* LaunchScreen.storyboard */; };
+		AE3EA250253D82B6002EA6CD /* UI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE3EA24F253D82AF002EA6CD /* UI.framework */; };
+		AE3EA251253D82B6002EA6CD /* UI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE3EA24F253D82AF002EA6CD /* UI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		AE3DC443253D77F9005A0B95 /* PBXContainerItemProxy */ = {
+		AE3EA24E253D82AF002EA6CD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = AE3DC432253D772B005A0B95 /* UI.xcodeproj */;
+			containerPortal = AE3EA24A253D82AF002EA6CD /* UI.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = AE3DC41D253D76E8005A0B95;
+			remoteInfo = UI;
+		};
+		AE3EA252253D82BC002EA6CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AE3EA24A253D82AF002EA6CD /* UI.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = AE3DC41C253D76E8005A0B95;
 			remoteInfo = UI;
 		};
 /* End PBXContainerItemProxy section */
@@ -32,6 +41,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				AE3EA251253D82B6002EA6CD /* UI.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -48,7 +58,7 @@
 		AE3DC407253D73CA005A0B95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE3DC409253D73CA005A0B95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE3DC410253D7587005A0B95 /* Images.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Images.entitlements; sourceTree = "<group>"; };
-		AE3DC432253D772B005A0B95 /* UI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = UI.xcodeproj; path = ../UI/UI.xcodeproj; sourceTree = "<group>"; };
+		AE3EA24A253D82AF002EA6CD /* UI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = UI.xcodeproj; path = UI/UI.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE3EA250253D82B6002EA6CD /* UI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,7 +76,7 @@
 		AE3DC3EF253D73C8005A0B95 = {
 			isa = PBXGroup;
 			children = (
-				AE3DC431253D7727005A0B95 /* Frameworks */,
+				AE3EA249253D82A2002EA6CD /* Frameworks */,
 				AE3DC3FA253D73C8005A0B95 /* Images */,
 				AE3DC3F9253D73C8005A0B95 /* Products */,
 			);
@@ -102,18 +113,18 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		AE3DC431253D7727005A0B95 /* Frameworks */ = {
+		AE3EA249253D82A2002EA6CD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AE3DC432253D772B005A0B95 /* UI.xcodeproj */,
+				AE3EA24A253D82AF002EA6CD /* UI.xcodeproj */,
 			);
-			path = Frameworks;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		AE3DC440253D77F9005A0B95 /* Products */ = {
+		AE3EA24B253D82AF002EA6CD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AE3DC444253D77F9005A0B95 /* UI.framework */,
+				AE3EA24F253D82AF002EA6CD /* UI.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -133,6 +144,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				AE3EA253253D82BC002EA6CD /* PBXTargetDependency */,
 			);
 			name = Images;
 			productName = Images;
@@ -166,8 +178,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = AE3DC440253D77F9005A0B95 /* Products */;
-					ProjectRef = AE3DC432253D772B005A0B95 /* UI.xcodeproj */;
+					ProductGroup = AE3EA24B253D82AF002EA6CD /* Products */;
+					ProjectRef = AE3EA24A253D82AF002EA6CD /* UI.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -178,11 +190,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		AE3DC444253D77F9005A0B95 /* UI.framework */ = {
+		AE3EA24F253D82AF002EA6CD /* UI.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = UI.framework;
-			remoteRef = AE3DC443253D77F9005A0B95 /* PBXContainerItemProxy */;
+			remoteRef = AE3EA24E253D82AF002EA6CD /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -212,6 +224,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AE3EA253253D82BC002EA6CD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = UI;
+			targetProxy = AE3EA252253D82BC002EA6CD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		AE3DC406253D73CA005A0B95 /* LaunchScreen.storyboard */ = {

@@ -7,17 +7,6 @@
 
 import SwiftUI
 
-public protocol ImageProviding: ObservableObject {
-    var image: LoadableResource<UIImage> { get }
-}
-
-public enum LoadableResource<Resource> {
-    case
-        loading(percentageLoaded: Int),
-        loaded(Resource),
-        failed(message: String)
-}
-
 struct ImageCellView<ImageProvider>: View where ImageProvider: ImageProviding {
     @StateObject var imageProvider: ImageProvider
     
@@ -30,6 +19,8 @@ struct ImageCellView<ImageProvider>: View where ImageProvider: ImageProviding {
                 Text("Loading: \(percentageLoaded)")
             case let .loaded(image):
                 Image(uiImage: image)
+                    .resizable()
+                    .scaledToFit()
             case let .failed(message):
                 Text("Error: \(message)")
             }
@@ -40,17 +31,15 @@ struct ImageCellView<ImageProvider>: View where ImageProvider: ImageProviding {
 
 struct ImageCellView_Previews: PreviewProvider {
     static var previews: some View {
-        ImageCellView(
-            imageProvider: MockImageProvider(image: .loading(percentageLoaded: 95)),
-            name: "Some name"
-        )
-    }
-}
-
-class MockImageProvider: ImageProviding {
-    let image: LoadableResource<UIImage>
-    
-    init(image: LoadableResource<UIImage>) {
-        self.image = image
+        VStack {
+            ImageCellView(
+                imageProvider: MockImageProvider(image: .loading(percentageLoaded: 95)),
+                name: "Some name"
+            )
+            ImageCellView(
+                imageProvider: MockImageProvider(image: .loaded(UIImage(named: "0", in: .current, with: nil)!)),
+                name: "Some name2"
+            )
+        }
     }
 }
