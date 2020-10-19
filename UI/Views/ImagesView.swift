@@ -104,3 +104,11 @@ struct ImagesView<ViewModel>: View where ViewModel: ImagesViewModelProtocol {
     }
 }
 
+struct ImagesView_Previews: PreviewProvider {
+    static var previews: some View {
+        ImagesBuilder.buildView(
+            viewModel: MockImagesViewModel(),
+            editorViewModelForElementIDProvider: { _ in MockEditorViewModel() }
+        )
+    }
+}

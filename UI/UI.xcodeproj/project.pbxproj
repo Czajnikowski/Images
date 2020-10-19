@@ -20,6 +20,7 @@
 		AE3EA26D253D8B4F002EA6CD /* MockImagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3EA26C253D8B4F002EA6CD /* MockImagesViewModel.swift */; };
 		AE72D414253DC73400998DE0 /* EditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE72D413253DC73400998DE0 /* EditorView.swift */; };
 		AE72D417253DC99B00998DE0 /* View+any.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE72D416253DC99B00998DE0 /* View+any.swift */; };
+		AE72D41F253DD82E00998DE0 /* MockEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE72D41E253DD82E00998DE0 /* MockEditorViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		AE3EA26C253D8B4F002EA6CD /* MockImagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockImagesViewModel.swift; sourceTree = "<group>"; };
 		AE72D413253DC73400998DE0 /* EditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorView.swift; sourceTree = "<group>"; };
 		AE72D416253DC99B00998DE0 /* View+any.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+any.swift"; sourceTree = "<group>"; };
+		AE72D41E253DD82E00998DE0 /* MockEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockEditorViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,9 +103,10 @@
 		AE3EA25B253D8430002EA6CD /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				AE72D41E253DD82E00998DE0 /* MockEditorViewModel.swift */,
 				AE3EA25C253D843E002EA6CD /* MockImageProvider.swift */,
-				AE3EA268253D8ADA002EA6CD /* UIImage+mock.swift */,
 				AE3EA26C253D8B4F002EA6CD /* MockImagesViewModel.swift */,
+				AE3EA268253D8ADA002EA6CD /* UIImage+mock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 				AE3DC43E253D7764005A0B95 /* ImagesView.swift in Sources */,
 				AE3EA266253D84F8002EA6CD /* LoadableResource.swift in Sources */,
 				AE72D417253DC99B00998DE0 /* View+any.swift in Sources */,
+				AE72D41F253DD82E00998DE0 /* MockEditorViewModel.swift in Sources */,
 				AE3EA258253D8410002EA6CD /* Bundle+current.swift in Sources */,
 				AE72D414253DC73400998DE0 /* EditorView.swift in Sources */,
 			);

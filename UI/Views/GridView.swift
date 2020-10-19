@@ -37,7 +37,6 @@ struct GridView<Content>: View where Content: View {
 }
 
 struct GridView_Previews: PreviewProvider {
-    
     static var previews: some View {
         HStack {
             GridView(columnWidth: 140) {

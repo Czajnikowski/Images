@@ -44,7 +44,7 @@ struct ImageCellView_Previews: PreviewProvider {
                 name: "Some name"
             )
             ImageCellView(
-                imageProvider: MockImageProvider(image: .loaded(UIImage(named: "0", in: .current, with: nil)!)),
+                imageProvider: MockImageProvider(image: .loaded(.mocked)),
                 name: "Some name2"
             )
         }

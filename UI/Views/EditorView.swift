@@ -25,6 +25,8 @@ public protocol EditorViewModelProtocol {
 struct EditorView<ViewModel>: View where ViewModel: EditorViewModelProtocol {
     private let viewModel: ViewModel
     
+    @State private var isTransformed = false
+    
     init(viewModel: ViewModel) {
         self.viewModel = viewModel
         self.name = viewModel.name
@@ -33,10 +35,20 @@ struct EditorView<ViewModel>: View where ViewModel: EditorViewModelProtocol {
     let name: String
     
     var body: some View {
-        ImageCellView(
-            imageProvider: viewModel.imageProvider,
-            name: name
-        )
+        VStack {
+            ImageCellView(
+                imageProvider: viewModel.imageProvider,
+                name: name
+            )
+            Toggle("Transform", isOn: $isTransformed)
+        }
     }
 }
 
+struct EditorView_Previews: PreviewProvider {
+    static var previews: some View {
+        EditorView(
+            viewModel: MockEditorViewModel()
+        )
+    }
+}
