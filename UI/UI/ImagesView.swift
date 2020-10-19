@@ -14,8 +14,20 @@ public class ImagesBuilder {
 }
 
 struct ImagesView: View {
+    @State private var columnWidth: CGFloat = 100
+    
     var body: some View {
-        Text("Yoyo")
+        GeometryReader { g in
+            VStack {
+                Slider(value: $columnWidth, in: 50 ... g.size.width / 2)
+                GridView(columnWidth: columnWidth) {
+                    ForEach(0 ..< 200) { _ in
+                        Rectangle().foregroundColor(.blue)
+                            .aspectRatio(1, contentMode: .fill)
+                    }
+                }
+            }
+        }
     }
 }
 
