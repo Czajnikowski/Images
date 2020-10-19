@@ -12,5 +12,5 @@ public enum LoadableResource<Resource> {
         idle,
         loading(percentageLoaded: Int),
         loaded(Resource),
-        failed(message: String)
+        failed
 }

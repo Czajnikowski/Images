@@ -12,7 +12,7 @@ extension LoadableResource {
         self = .loaded(resource)
     }
     
-    var image: Resource? {
+    var resource: Resource? {
         if case let LoadableResource.loaded(resource) = self {
             return resource
         }

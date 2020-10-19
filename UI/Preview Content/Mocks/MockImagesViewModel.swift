@@ -14,7 +14,7 @@ class MockImagesViewModel: ImagesViewModelProtocol {
         elements = .loaded([
             (10, MockImageProvider(image: .loading(percentageLoaded: 22)), "some"),
             (12, MockImageProvider(image: .loaded(.mocked)), "thing"),
-            (23, MockImageProvider(image: .failed(message: "Failed")), "else?")
+            (23, MockImageProvider(image: .failed), "else?")
         ].map(ImageElementState.init))
     }
 }

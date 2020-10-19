@@ -22,7 +22,7 @@ class TransformedImageProvider: LiveSurfaceImageProvider {
                 ciFilter.inputImage = inputImage
                 
                 guard let filteredImage = ciFilter.outputImage else {
-                    image = .failed(message: "Failed")
+                    image = .failed
                     return
                 }
                 
@@ -33,7 +33,7 @@ class TransformedImageProvider: LiveSurfaceImageProvider {
                     )
                     .map(UIImage.init)
                     .map(LoadableResource.init)
-                    ?? .failed(message: "Unable to render image")
+                    ?? .failed
             }
             else {
                 if let originalImage = originalImage {

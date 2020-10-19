@@ -11,12 +11,10 @@ import Combine
 
 private let cache = NSCache<NSString, UIImage>()
 
-//todo
 class LiveSurfaceImageProvider: ImageProviding {
     @Published var image: LoadableResource<UIImage> = .idle
     
-    //force
-    private let baseURLComponents = URLComponents(string: "https://www.livesurface.com")!
+    private let baseURLComponents = URLComponents(string: "https://www.livesurface.com")
     
     private var imageLoadingToken: Cancellable?
     
@@ -27,27 +25,33 @@ class LiveSurfaceImageProvider: ImageProviding {
         }
         
         var components = baseURLComponents
-        components.path += "/test/images/" + imageName
+        components?.path += "/test/images/" + imageName
+        
+        guard let url = components?.url else {
+            image = .failed
+            return
+        }
         
         imageLoadingToken = URLSession
             .shared
-            //force
-            .dataTaskPublisher(for: components.url!)
+            .dataTaskPublisher(for: url)
             .map(\.data)
             .map(UIImage.init)
             .replaceError(with: nil)
-            //local?
-            .map { $0.map(LoadableResource.init) ?? .failed(message: "Unable to display image") }
+            .map { $0.map(LoadableResource.init) ?? .failed }
             .receive(on: DispatchQueue.main)
-            .sink { image in
-                //weak self?
-                if let downloadedImage = image.image {
-                    cache.setObject(downloadedImage, forKey: imageName as NSString)
+            .sink { [weak self] image in
+                guard let self = self else {
+                    return
                 }
                 
                 self.image = image
-                //tmp
-                image.image.map(self.originalLoaded)
+                
+                if let downloadedImage = image.resource {
+                    cache.setObject(downloadedImage, forKey: imageName as NSString)
+                    self.originalLoaded(downloadedImage)
+                }
+                
                 self.imageLoadingToken = nil
             }
     }

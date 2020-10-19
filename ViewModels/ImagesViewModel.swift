@@ -44,7 +44,7 @@ class ImagesViewModel: ImagesViewModelProtocol {
             .imageDTOs
             .catch { error -> AnyPublisher<[ImageDTO], Never> in
                 DispatchQueue.main.async {
-                    self.elements = .failed(message: error.localizedDescription)
+                    self.elements = .failed
                 }
                 
                 return Empty(completeImmediately: true)

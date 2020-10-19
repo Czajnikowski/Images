@@ -10,5 +10,5 @@ import Foundation
 class MockEditorViewModel: EditorViewModelProtocol {
     let name: String = ""
     
-    let transformedImageProvider = MockTransformedImageProvider(image: .failed(message: "failed"))   
+    let transformedImageProvider = MockTransformedImageProvider(image: .failed)   
 }

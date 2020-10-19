@@ -63,6 +63,8 @@ public struct ImageElementState<ImageProvider>: Identifiable where
 private struct DesignConstants {
     static let minimumColumnWidth: CGFloat = 50
     static let maximumColumnFractionOfScreenWidth: CGFloat = 0.5
+    
+    static let cellAspectRatio: CGFloat = 1
 }
 
 struct ImagesView<ViewModel>: View where ViewModel: ImagesViewModelProtocol {
@@ -109,7 +111,7 @@ struct ImagesView<ViewModel>: View where ViewModel: ImagesViewModelProtocol {
                                     imageProvider: element.imageProvider,
                                     name: element.name
                                 )
-                                    .aspectRatio(1, contentMode: .fill)
+                                .aspectRatio(DesignConstants.cellAspectRatio, contentMode: .fill)
                                     .onTapGesture {
                                         viewState.selectedElementID = element.id
                                         viewState.showEditor.toggle()
