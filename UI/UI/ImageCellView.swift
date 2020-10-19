@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct ImageCellView<ImageProvider>: View where ImageProvider: ImageProviding {
+    #if targetEnvironment(macCatalyst)
+    @ObservedObject var imageProvider: ImageProvider
+    #else
     @StateObject var imageProvider: ImageProvider
+    #endif
     
     let name: String
     
