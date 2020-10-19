@@ -9,26 +9,17 @@ import Foundation
 import UI
 import Combine
 
-import UIKit
-class MockImageProvider: ImageProviding {
-    let image: LoadableResource<UIImage>
-    
-    init(image: LoadableResource<UIImage>) {
-        self.image = image
-    }
-}
-
 class ImagesViewModel: ImagesViewModelProtocol {
     let service: DecodedValueProviding
     
-    var elements: LoadableResource<[ImageElementState<MockImageProvider>]> = .idle
+    var elements: LoadableResource<[ImageElementState<LiveSurfaceImageProvider>]> = .idle
     @Published private var imageDTOs: [ImageDTO] = [] {
         didSet {
             elements = .loaded(
                 imageDTOs.map {
                     ImageElementState(
                         id: $0.index,
-                        imageProvider: MockImageProvider(image: .loading(percentageLoaded: 33)),
+                        imageProvider: LiveSurfaceImageProvider(imageName: $0.image),
                         name: $0.name
                     )
                 }

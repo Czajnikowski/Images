@@ -7,7 +7,33 @@
 
 import UIKit
 import UI
+import Combine
 
-class ImageProvider: ImageProviding {
-    let image: LoadableResource<UIImage> = .idle
+class LiveSurfaceImageProvider: ImageProviding {
+    @Published var image: LoadableResource<UIImage> = .idle
+    
+    private let baseURLComponents = URLComponents(string: "https://www.livesurface.com")!
+    
+    private var imageLoadingToken: Cancellable?
+    
+    init(imageName: String) {
+        var components = baseURLComponents
+        components.path += "/test/images/" + imageName
+        
+        imageLoadingToken = URLSession
+            .shared
+            .dataTaskPublisher(for: components.url!)
+            .map(\.data)
+            .map(UIImage.init)
+            .replaceError(with: nil)
+            .receive(on: DispatchQueue.main)
+            .sink {
+                guard let image = $0 else {
+                    return
+                }
+                
+                self.image = .loaded(image)
+                self.imageLoadingToken = nil
+            }
+    }
 }
