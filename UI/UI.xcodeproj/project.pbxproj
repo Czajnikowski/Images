@@ -22,6 +22,7 @@
 		AE72D417253DC99B00998DE0 /* View+any.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE72D416253DC99B00998DE0 /* View+any.swift */; };
 		AE72D41F253DD82E00998DE0 /* MockEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE72D41E253DD82E00998DE0 /* MockEditorViewModel.swift */; };
 		AE72D427253DE31000998DE0 /* MockTransformedImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE72D426253DE31000998DE0 /* MockTransformedImageProvider.swift */; };
+		AE72D42C253DEE0400998DE0 /* View+Perform.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE72D42B253DEE0300998DE0 /* View+Perform.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		AE72D416253DC99B00998DE0 /* View+any.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+any.swift"; sourceTree = "<group>"; };
 		AE72D41E253DD82E00998DE0 /* MockEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockEditorViewModel.swift; sourceTree = "<group>"; };
 		AE72D426253DE31000998DE0 /* MockTransformedImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTransformedImageProvider.swift; sourceTree = "<group>"; };
+		AE72D42B253DEE0300998DE0 /* View+Perform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Perform.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			children = (
 				AE3EA257253D8410002EA6CD /* Bundle+current.swift */,
 				AE72D416253DC99B00998DE0 /* View+any.swift */,
+				AE72D42B253DEE0300998DE0 /* View+Perform.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				AE72D41F253DD82E00998DE0 /* MockEditorViewModel.swift in Sources */,
 				AE3EA258253D8410002EA6CD /* Bundle+current.swift in Sources */,
 				AE72D414253DC73400998DE0 /* EditorView.swift in Sources */,
+				AE72D42C253DEE0400998DE0 /* View+Perform.swift in Sources */,
 				AE72D427253DE31000998DE0 /* MockTransformedImageProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

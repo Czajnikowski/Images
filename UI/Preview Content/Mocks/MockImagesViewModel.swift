@@ -12,9 +12,9 @@ class MockImagesViewModel: ImagesViewModelProtocol {
     
     func loadElements() {
         elements = .loaded([
-            (0, MockImageProvider(image: .loading(percentageLoaded: 22)), "some"),
-            (1, MockImageProvider(image: .loaded(.mocked)), "thing"),
-            (2, MockImageProvider(image: .failed(message: "Failed")), "else?")
+            (10, MockImageProvider(image: .loading(percentageLoaded: 22)), "some"),
+            (12, MockImageProvider(image: .loaded(.mocked)), "thing"),
+            (23, MockImageProvider(image: .failed(message: "Failed")), "else?")
         ].map(ImageElementState.init))
     }
 }

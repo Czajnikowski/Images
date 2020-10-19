@@ -67,12 +67,24 @@ private struct DesignConstants {
 
 struct ImagesView<ViewModel>: View where ViewModel: ImagesViewModelProtocol {
     typealias ElementID = ImageElementState<ViewModel.ImageProvider>.ID
-    
+
+    private struct ViewState {
+        var showEditor = false
+        var selectedElementID: ElementID?
+        var columnWidth: CGFloat = 100
+    }
+
     @ObservedObject var viewModel: ViewModel
     
-    @State private var columnWidth: CGFloat = 100
-    @State private var showEditor = false
-    @State private var selectedElementID: ElementID?
+    @State private var viewState = ViewState()
+    
+    init(
+        viewModel: ViewModel,
+        buildEditorView: @escaping (ElementID) -> AnyView?
+    ) {
+        self.viewModel = viewModel
+        self.buildEditorView = buildEditorView
+    }
     
     let buildEditorView: (ElementID) -> AnyView?
     
@@ -87,11 +99,11 @@ struct ImagesView<ViewModel>: View where ViewModel: ImagesViewModelProtocol {
                 GeometryReader { g in
                     VStack {
                         Slider(
-                            value: $columnWidth,
+                            value: $viewState.columnWidth,
                             in: DesignConstants.minimumColumnWidth ... g.size.width * DesignConstants.maximumColumnFractionOfScreenWidth
                         )
                         
-                        GridView(columnWidth: columnWidth) {
+                        GridView(columnWidth: viewState.columnWidth) {
                             ForEach(elements) { element in
                                 ImageCellView(
                                     imageProvider: element.imageProvider,
@@ -99,11 +111,11 @@ struct ImagesView<ViewModel>: View where ViewModel: ImagesViewModelProtocol {
                                 )
                                     .aspectRatio(1, contentMode: .fill)
                                     .onTapGesture {
-                                        selectedElementID = element.id
-                                        showEditor.toggle()
+                                        viewState.selectedElementID = element.id
+                                        viewState.showEditor.toggle()
                                     }
-                                    .sheet(isPresented: $showEditor) {
-                                        selectedElementID.map(buildEditorView)
+                                    .sheet(isPresented: $viewState.showEditor) {
+                                        viewState.selectedElementID.map(buildEditorView)
                                             ?? Text("Something wrong").asAny
                                     }
                             }

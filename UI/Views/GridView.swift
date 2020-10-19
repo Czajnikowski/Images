@@ -16,18 +16,22 @@ struct GridView<Content>: View where Content: View {
         GeometryReader { g in
             VStack {
                 ScrollView {
-                    let content = self.content().frame(width: columnWidth)
+                    let content = self.content()
+                    
                     #if targetEnvironment(macCatalyst)
-                    List {
+                    VStack {
                         content
+                            .frame(width: columnWidth)
                     }
+                        .frame(maxWidth: .infinity)
+                    
                     #else
                     LazyVGrid(
                         columns: (1 ... Int(g.size.width / columnWidth))
                             .map { _ in GridItem.init(.flexible()) },
                         spacing: 10
                     ) {
-                        content
+                        content.frame(width: columnWidth)
                     }
                     #endif
                 }
@@ -40,7 +44,7 @@ struct GridView_Previews: PreviewProvider {
     static var previews: some View {
         HStack {
             GridView(columnWidth: 140) {
-                ForEach(0 ..< 20000000) { _ in
+                ForEach(0 ..< 200) { _ in
                     Rectangle()
                         .foregroundColor(.red)
                         .aspectRatio(1, contentMode: .fit)

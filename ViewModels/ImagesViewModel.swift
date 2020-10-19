@@ -46,6 +46,7 @@ class ImagesViewModel: ImagesViewModelProtocol {
             .receive(on: DispatchQueue.main)
             .assign(to: \.imageDTOs, on: self)
     }
+    
     func imageDTO(
         forElementWithID elementID: ImageElementState<LiveSurfaceImageProvider>.ID
     ) -> ImageDTO? {
