@@ -41,7 +41,7 @@ class ImagesViewModel: ImagesViewModelProtocol {
         let publishers = service.provideImageDTOs()
         
         elementsLoadingToken = publishers
-            .0
+            .imageDTOs
             .catch { error -> AnyPublisher<[ImageDTO], Never> in
                 DispatchQueue.main.async {
                     self.elements = .failed(message: error.localizedDescription)
@@ -54,7 +54,7 @@ class ImagesViewModel: ImagesViewModelProtocol {
             .assign(to: \.imageDTOs, on: self)
         
         elementsLoadingProgressToken = publishers
-            .1
+            .progress
             .map { LoadableResource<[Element]>.loading(percentageLoaded: $0) }
             .receive(on: DispatchQueue.main)
             .assign(to: \.elements, on: self)

@@ -14,16 +14,20 @@ class URLSessionDecodeedValueProvider: DecodedValueProviding {
     func provide<Value>(
         _ valueType: Value.Type,
         for url: URL
-    ) -> (AnyPublisher<Value, Error>, AnyPublisher<Int, Never>) where Value: Decodable {
+    ) -> (
+        value: AnyPublisher<Value, Error>,
+        progress: AnyPublisher<Int, Never>
+    ) where Value: Decodable {
         let dataSubject = PassthroughSubject<Data, Error>()
         
         let task = URLSession
             .shared
             .dataTask(with: url) { data, _, error in
-                if let error = error {
+                if let error = error, data == nil {
                     dataSubject.send(completion: .failure(error))
                 }
-                dataSubject.send(data!)
+                
+                data.map(dataSubject.send)
             }
         
         let progressSubject = PassthroughSubject<Int, Never>()
