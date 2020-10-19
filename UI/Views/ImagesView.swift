@@ -24,6 +24,13 @@ public class ImagesBuilder {
             }
         )
     }
+    
+    public static func buildMockedView() -> some View {
+        buildView(
+            viewModel: MockImagesViewModel(),
+            editorViewModelForElementIDProvider: { _ in MockEditorViewModel() }
+        )
+    }
 }
 
 public protocol ImagesViewModelProtocol: ObservableObject {
@@ -53,6 +60,11 @@ public struct ImageElementState<ImageProvider>: Identifiable where
     }
 }
 
+private struct DesignConstants {
+    static let minimumColumnWidth: CGFloat = 50
+    static let maximumColumnFractionOfScreenWidth: CGFloat = 0.5
+}
+
 struct ImagesView<ViewModel>: View where ViewModel: ImagesViewModelProtocol {
     typealias ElementID = ImageElementState<ViewModel.ImageProvider>.ID
     
@@ -74,7 +86,11 @@ struct ImagesView<ViewModel>: View where ViewModel: ImagesViewModelProtocol {
             case let .loaded(elements):
                 GeometryReader { g in
                     VStack {
-                        Slider(value: $columnWidth, in: 50 ... g.size.width / 2)
+                        Slider(
+                            value: $columnWidth,
+                            in: DesignConstants.minimumColumnWidth ... g.size.width * DesignConstants.maximumColumnFractionOfScreenWidth
+                        )
+                        
                         GridView(columnWidth: columnWidth) {
                             ForEach(elements) { element in
                                 ImageCellView(
@@ -106,9 +122,6 @@ struct ImagesView<ViewModel>: View where ViewModel: ImagesViewModelProtocol {
 
 struct ImagesView_Previews: PreviewProvider {
     static var previews: some View {
-        ImagesBuilder.buildView(
-            viewModel: MockImagesViewModel(),
-            editorViewModelForElementIDProvider: { _ in MockEditorViewModel() }
-        )
+        ImagesBuilder.buildMockedView()
     }
 }

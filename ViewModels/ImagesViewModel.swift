@@ -49,7 +49,6 @@ class ImagesViewModel: ImagesViewModelProtocol {
     func imageDTO(
         forElementWithID elementID: ImageElementState<LiveSurfaceImageProvider>.ID
     ) -> ImageDTO? {
-        print(elementID)
         return imageDTOs.first(where: { $0.index == elementID })
     }
 }

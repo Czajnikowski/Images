@@ -26,7 +26,6 @@ struct ImageCellView<ImageProvider>: View where ImageProvider: ImageProviding {
             case let .loaded(image):
                 Image(uiImage: image)
                     .resizable()
-                    //sure?
                     .scaledToFit()
             case let .failed(message):
                 Text("Error: \(message)")

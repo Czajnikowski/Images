@@ -21,14 +21,19 @@ class TransformedImageProvider: LiveSurfaceImageProvider {
                 let ciFilter = CIFilter.falseColor()
                 ciFilter.inputImage = inputImage
                 
-                image = .loaded(
-                    UIImage(
-                        cgImage: CIContext().createCGImage(
-                            ciFilter.outputImage!,
-                            from: ciFilter.outputImage!.extent
-                        )!
+                guard let filteredImage = ciFilter.outputImage else {
+                    image = .failed(message: "Failed")
+                    return
+                }
+                
+                image = CIContext()
+                    .createCGImage(
+                        filteredImage,
+                        from: filteredImage.extent
                     )
-                )
+                    .map(UIImage.init)
+                    .map(LoadableResource.init)
+                    ?? .failed(message: "Unable to render image")
             }
             else {
                 if let originalImage = originalImage {
