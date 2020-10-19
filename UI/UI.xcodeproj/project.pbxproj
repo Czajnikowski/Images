@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		AE3DC422253D76E8005A0B95 /* UI.h in Headers */ = {isa = PBXBuildFile; fileRef = AE3DC420253D76E8005A0B95 /* UI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AE3DC43E253D7764005A0B95 /* ImagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3DC43D253D7764005A0B95 /* ImagesView.swift */; };
+		AE3DC447253D7862005A0B95 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3DC446253D7862005A0B95 /* GridView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -16,6 +17,7 @@
 		AE3DC420253D76E8005A0B95 /* UI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UI.h; sourceTree = "<group>"; };
 		AE3DC421253D76E8005A0B95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE3DC43D253D7764005A0B95 /* ImagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesView.swift; sourceTree = "<group>"; };
+		AE3DC446253D7862005A0B95 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 				AE3DC420253D76E8005A0B95 /* UI.h */,
 				AE3DC421253D76E8005A0B95 /* Info.plist */,
 				AE3DC43D253D7764005A0B95 /* ImagesView.swift */,
+				AE3DC446253D7862005A0B95 /* GridView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -134,6 +137,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE3DC447253D7862005A0B95 /* GridView.swift in Sources */,
 				AE3DC43E253D7764005A0B95 /* ImagesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
