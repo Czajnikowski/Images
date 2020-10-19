@@ -11,7 +11,10 @@ public class ImagesBuilder {
     public static func buildView<ViewModel>(
         viewModel: ViewModel
     ) -> some View where ViewModel: ImagesViewModelProtocol {
-        ImagesView(viewModel: viewModel)
+        ImagesView(
+            viewModel: viewModel,
+            buildEditorView: { _ in Rectangle().foregroundColor(.black).asAny }
+        )
     }
 }
 
@@ -46,6 +49,9 @@ struct ImagesView<ViewModel>: View where ViewModel: ImagesViewModelProtocol {
     @ObservedObject var viewModel: ViewModel
     
     @State private var columnWidth: CGFloat = 100
+    @State private var showEditor = false
+    
+    let buildEditorView: (ImageElementState<ViewModel.ImageProvider>.ID) -> AnyView
     
     var body: some View {
         Group {
@@ -65,6 +71,12 @@ struct ImagesView<ViewModel>: View where ViewModel: ImagesViewModelProtocol {
                                     name: element.name
                                 )
                                     .aspectRatio(1, contentMode: .fill)
+                                    .onTapGesture {
+                                        showEditor.toggle()
+                                    }
+                                    .sheet(isPresented: $showEditor) {
+                                        buildEditorView(element.id)
+                                    }
                             }
                         }
                     }
@@ -81,6 +93,6 @@ struct ImagesView<ViewModel>: View where ViewModel: ImagesViewModelProtocol {
 
 struct ImagesView_Previews: PreviewProvider {
     static var previews: some View {
-        ImagesView(viewModel: MockImagesViewModel())
+        ImagesBuilder.buildView(viewModel: MockImagesViewModel())
     }
 }
