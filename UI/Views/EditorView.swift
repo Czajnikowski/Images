@@ -16,19 +16,24 @@ public class EditorBuilder {
 }
 
 public protocol EditorViewModelProtocol {
-    associatedtype ImageProvider: ImageProviding
+    associatedtype TransformedImageProvider: TransformedImageProviding
     
-    var imageProvider: ImageProvider { get }
+    var transformedImageProvider: TransformedImageProvider { get }
     var name: String { get }
+}
+
+public protocol TransformedImageProviding: ImageProviding {
+    var isTransformed: Bool { get set }
 }
 
 struct EditorView<ViewModel>: View where ViewModel: EditorViewModelProtocol {
     private let viewModel: ViewModel
     
-    @State private var isTransformed = false
+    @ObservedObject private var transformedImageProvider: ViewModel.TransformedImageProvider
     
     init(viewModel: ViewModel) {
         self.viewModel = viewModel
+        self.transformedImageProvider = viewModel.transformedImageProvider
         self.name = viewModel.name
     }
     
@@ -37,10 +42,13 @@ struct EditorView<ViewModel>: View where ViewModel: EditorViewModelProtocol {
     var body: some View {
         VStack {
             ImageCellView(
-                imageProvider: viewModel.imageProvider,
+                imageProvider: viewModel.transformedImageProvider,
                 name: name
             )
-            Toggle("Transform", isOn: $isTransformed)
+            Toggle(
+                "Transform",
+                isOn: $transformedImageProvider.isTransformed
+            )
         }
     }
 }

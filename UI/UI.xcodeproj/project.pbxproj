@@ -21,6 +21,7 @@
 		AE72D414253DC73400998DE0 /* EditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE72D413253DC73400998DE0 /* EditorView.swift */; };
 		AE72D417253DC99B00998DE0 /* View+any.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE72D416253DC99B00998DE0 /* View+any.swift */; };
 		AE72D41F253DD82E00998DE0 /* MockEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE72D41E253DD82E00998DE0 /* MockEditorViewModel.swift */; };
+		AE72D427253DE31000998DE0 /* MockTransformedImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE72D426253DE31000998DE0 /* MockTransformedImageProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		AE72D413253DC73400998DE0 /* EditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorView.swift; sourceTree = "<group>"; };
 		AE72D416253DC99B00998DE0 /* View+any.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+any.swift"; sourceTree = "<group>"; };
 		AE72D41E253DD82E00998DE0 /* MockEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockEditorViewModel.swift; sourceTree = "<group>"; };
+		AE72D426253DE31000998DE0 /* MockTransformedImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTransformedImageProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				AE72D41E253DD82E00998DE0 /* MockEditorViewModel.swift */,
 				AE3EA25C253D843E002EA6CD /* MockImageProvider.swift */,
 				AE3EA26C253D8B4F002EA6CD /* MockImagesViewModel.swift */,
+				AE72D426253DE31000998DE0 /* MockTransformedImageProvider.swift */,
 				AE3EA268253D8ADA002EA6CD /* UIImage+mock.swift */,
 			);
 			path = Mocks;
@@ -223,6 +226,7 @@
 				AE72D41F253DD82E00998DE0 /* MockEditorViewModel.swift in Sources */,
 				AE3EA258253D8410002EA6CD /* Bundle+current.swift in Sources */,
 				AE72D414253DC73400998DE0 /* EditorView.swift in Sources */,
+				AE72D427253DE31000998DE0 /* MockTransformedImageProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

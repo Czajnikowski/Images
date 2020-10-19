@@ -35,14 +35,3 @@ class AppCoordinator {
         )
     }
 }
-
-class EditorViewModel: EditorViewModelProtocol {
-    var name: String = "some name from vm"
-    
-    @Published var imageProvider: LiveSurfaceImageProvider
-    
-    init(imageDTO: ImageDTO) {
-        name = imageDTO.name
-        imageProvider = LiveSurfaceImageProvider(imageName: imageDTO.image)
-    }
-}
