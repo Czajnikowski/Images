@@ -10,10 +10,11 @@ import UI
 import Combine
 
 class ImagesViewModel: ImagesViewModelProtocol {
+    typealias Element = ImageElementState<LiveSurfaceImageProvider>
     let service: DecodedValueProviding
     
-    var elements: LoadableResource<[ImageElementState<LiveSurfaceImageProvider>]> = .idle
-    @Published private var imageDTOs: [ImageDTO] = [] {
+    @Published var elements: LoadableResource<[Element]> = .idle
+    private var imageDTOs: [ImageDTO] = [] {
         didSet {
             elements = .loaded(
                 imageDTOs.map {
@@ -28,13 +29,19 @@ class ImagesViewModel: ImagesViewModelProtocol {
     }
     
     private var elementsLoadingToken: Cancellable?
+    private var elementsLoadingProgressToken: Cancellable?
     
     init(service: DecodedValueProviding) {
         self.service = service
     }
     
     func loadElements() {
-        elementsLoadingToken = service.provideImageDTOs()
+        elements = .loading(percentageLoaded: 0)
+        
+        let publishers = service.provideImageDTOs()
+        
+        elementsLoadingToken = publishers
+            .0
             .catch { error -> AnyPublisher<[ImageDTO], Never> in
                 DispatchQueue.main.async {
                     self.elements = .failed(message: error.localizedDescription)
@@ -45,10 +52,16 @@ class ImagesViewModel: ImagesViewModelProtocol {
             }
             .receive(on: DispatchQueue.main)
             .assign(to: \.imageDTOs, on: self)
+        
+        elementsLoadingProgressToken = publishers
+            .1
+            .map { LoadableResource<[Element]>.loading(percentageLoaded: $0) }
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.elements, on: self)
     }
     
     func imageDTO(
-        forElementWithID elementID: ImageElementState<LiveSurfaceImageProvider>.ID
+        forElementWithID elementID: Element.ID
     ) -> ImageDTO? {
         return imageDTOs.first(where: { $0.index == elementID })
     }

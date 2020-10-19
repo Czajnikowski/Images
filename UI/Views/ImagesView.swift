@@ -93,8 +93,8 @@ struct ImagesView<ViewModel>: View where ViewModel: ImagesViewModelProtocol {
             switch viewModel.elements {
             case .idle:
                 Text("Idle")
-            case .loading:
-                Text("Loading")
+            case let .loading(percentageCompleted):
+                Text("Loading \(percentageCompleted)%")
             case let .loaded(elements):
                 GeometryReader { g in
                     VStack {

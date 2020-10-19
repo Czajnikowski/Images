@@ -15,16 +15,22 @@ extension DecodedValueProviding {
         URL(string: "https://www.livesurface.com/test/api/images.php?key=79319da5-8cb3-43ac-f5b0-f38a727242a8")
     }
     
-    func provideImageDTOs() -> AnyPublisher<[ImageDTO], String> {
+    func provideImageDTOs() -> (AnyPublisher<[ImageDTO], String>, AnyPublisher<Int, Never>) {
         guard let url = url else {
-            return Empty(completeImmediately: true).eraseToAnyPublisher()
+            fatalError()
         }
         
-        return provide(ImagesDTO.self, for: url)
-            .mapError { $0.localizedDescription }
-            .map(\.images)
-            .map(\.values)
-            .map(Array.init)
-            .eraseToAnyPublisher()
+        let publishers = provide(ImagesDTO.self, for: url)
+        
+        return (
+            publishers
+                .0
+                .mapError { $0.localizedDescription }
+                .map(\.images)
+                .map(\.values)
+                .map(Array.init)
+                .eraseToAnyPublisher(),
+            publishers.1
+        )
     }
 }

@@ -12,5 +12,5 @@ protocol DecodedValueProviding {
     func provide<Value>(
         _ valueType: Value.Type,
         for url: URL
-    ) -> AnyPublisher<Value, Error> where Value : Decodable
+    ) -> (AnyPublisher<Value, Error>, AnyPublisher<Int, Never>) where Value : Decodable
 }
