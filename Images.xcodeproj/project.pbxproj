@@ -15,6 +15,29 @@
 		AE3DC408253D73CA005A0B95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE3DC406253D73CA005A0B95 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		AE3DC443253D77F9005A0B95 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AE3DC432253D772B005A0B95 /* UI.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AE3DC41D253D76E8005A0B95;
+			remoteInfo = UI;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AE3DC43A253D7747005A0B95 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		AE3DC3F8253D73C8005A0B95 /* Images.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Images.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE3DC3FB253D73C8005A0B95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -25,6 +48,7 @@
 		AE3DC407253D73CA005A0B95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE3DC409253D73CA005A0B95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE3DC410253D7587005A0B95 /* Images.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Images.entitlements; sourceTree = "<group>"; };
+		AE3DC432253D772B005A0B95 /* UI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = UI.xcodeproj; path = ../UI/UI.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +65,7 @@
 		AE3DC3EF253D73C8005A0B95 = {
 			isa = PBXGroup;
 			children = (
+				AE3DC431253D7727005A0B95 /* Frameworks */,
 				AE3DC3FA253D73C8005A0B95 /* Images */,
 				AE3DC3F9253D73C8005A0B95 /* Products */,
 			);
@@ -77,6 +102,22 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		AE3DC431253D7727005A0B95 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AE3DC432253D772B005A0B95 /* UI.xcodeproj */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		AE3DC440253D77F9005A0B95 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AE3DC444253D77F9005A0B95 /* UI.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -87,6 +128,7 @@
 				AE3DC3F4253D73C8005A0B95 /* Sources */,
 				AE3DC3F5253D73C8005A0B95 /* Frameworks */,
 				AE3DC3F6253D73C8005A0B95 /* Resources */,
+				AE3DC43A253D7747005A0B95 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -122,12 +164,28 @@
 			mainGroup = AE3DC3EF253D73C8005A0B95;
 			productRefGroup = AE3DC3F9253D73C8005A0B95 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = AE3DC440253D77F9005A0B95 /* Products */;
+					ProjectRef = AE3DC432253D772B005A0B95 /* UI.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				AE3DC3F7253D73C8005A0B95 /* Images */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		AE3DC444253D77F9005A0B95 /* UI.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = UI.framework;
+			remoteRef = AE3DC443253D77F9005A0B95 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		AE3DC3F6253D73C8005A0B95 /* Resources */ = {
